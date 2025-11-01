@@ -28,6 +28,15 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    public Optional<User> updateUser(Long id, User userDetails) {
+        return userRepository.findById(id).map(user -> {
+            user.setName(userDetails.getName());
+            user.setSurname(userDetails.getSurname());
+            user.setEmail(userDetails.getEmail());
+            return userRepository.save(user);
+        });
+    }
+
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
