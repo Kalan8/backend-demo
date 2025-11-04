@@ -54,9 +54,9 @@ The frontend is available at : `https://github.com/Kalan8/frontend-demo`
 
 Some possible further features :
 
-* Create your own pets (dog, cat for example)
 * Connect with friends
-* Search people around or with the specific pet
+* Create your own pets (dog, cat for example)
+* Search people around or with a specific pet
 
 ---
 
