@@ -25,10 +25,10 @@ This project is mainly a sandbox for testing backend/frontend techs and concepts
 
 ## Table of Contents
 
-| Sections                                                                                                                                                                                                                                                      | Concerns                       |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
-| <ul><li>[Actual Features](#actual-features)</li><li>[Further Potential Features](#further-potential-features)</li><li>[Changelog for Frontend/Backend projects](#changelog-for-frontendbackend-projects)</li></ul>                                            | ****Backend** / **Frontend**** | 
-| <ul><li>[Tech Stack](#tech-stack)</li><li>[Features](#features)</li><li>[Getting Started](#getting-started)</li><li>[Running Tests](#running-tests)</li><li>[API Endpoints](#api-endpoints)</li><li>[Error Response Format](#error-response-format)</li></ul> | ****Backend****                |
+| Sections                                                                                                                                                                                                                                                                               | Concerns                       |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
+| <ul><li>[Actual Features](#actual-features)</li><li>[Further Potential Features](#further-potential-features)</li><li>[Changelog for Frontend/Backend projects](#changelog-for-frontendbackend-projects)</li></ul>                                                                     | ****Backend** / **Frontend**** | 
+| <ul><li>[Tech Stack](#backend-tech-stack)</li><li>[Features](#backend-internal-features)</li><li>[Getting Started](#getting-started)</li><li>[Running Tests](#running-tests)</li><li>[API Endpoints](#api-endpoints)</li><li>[Error Response Format](#error-response-format)</li></ul> | ****Backend****                |
 
 ---
 
@@ -103,9 +103,9 @@ The application could send mail to the registered people to indicate if they hav
 
 ### ⚠️ Notice that these next sections below only concern Backend part
 
-###                                 
+###                                    
 
-## Tech Stack
+## Backend Tech Stack
 
 * Java 25
 * Spring Boot 3.x
@@ -118,7 +118,7 @@ The application could send mail to the registered people to indicate if they hav
 
 ---
 
-## Features
+## Backend Internal Features
 
 * Create, read, update, and delete users via REST endpoints.
 * In-memory H2 database for fast development and testing but works also with My SQL database. Dependency commented in
