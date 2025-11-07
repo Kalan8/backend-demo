@@ -1,16 +1,16 @@
-# <span style="color:#5f6360">Backend Lottery </span>
+# Backend Lottery
 
 This project is a java backend side of a web Lottery application. \
 The associated frontend is developed in Typescript/React and it is available at :
 [`https://github.com/Kalan8/frontend-demo`](https://github.com/Kalan8/frontend-demo)
 
-The purpose of this couple of projects is to develop a lottery application.
+The purpose of this couple of projects is to develop a lottery application. \
 A brief specification of the app is:
 
 * provide a page for creating/importing users and display the list of registered users,
 * provide another page for launching the lottery and displaying the winner(s).
 
-The [Further Potential Features](#span-stylecolor5f6360further-potential-featuresspan) section below presents what would
+The [Further Potential Features](#further-potential-features) section below presents what would
 be
 good to do to improve
 the application.
@@ -21,18 +21,18 @@ This project is mainly a sandbox for testing backend/frontend techs and concepts
 
 ---
 
-## <span style="color:#5f6360"> Table of Contents</span>
+## Table of Contents
 
-| Sections                                                                                                                                                                                                                                                                                                                                                                                                            | Concerns                                                                                           |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| <ul><li>[Actual Features](#span-stylecolor5f6360actual-featuresspan)</li><li>[Further Potential Features](#span-stylecolor5f6360further-potential-featuresspan)</li><li>[Changelog for Frontend/Backend projects](#span-stylecolor5f6360changelog-for-frontendbackend-projectsspan)</li></ul>                                                                                                                       | **<span style="color:#485cf7">**Backend**</span> / <span style="color:green">**Frontend**</span>** | 
-| <ul><li>[Tech Stack](#span-stylecolor5f6360tech-stackspan)</li><li>[Features](#span-stylecolor5f6360featuresspan)</li><li>[Getting Started](#span-stylecolor5f6360getting-startedspan)</li><li>[Running Tests](#span-stylecolor5f6360running-testsspan)</li><li>[API Endpoints](#span-stylecolor5f6360api-endpointsspan)</li><li>[Error Response Format](#span-stylecolor5f6360error-response-formatspan)</li></ul> | **<span style="color:#485cf7">**Backend**</span>**                                                 |
+| Sections                                                                                                                                                                                                                                                      | Concerns                       |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
+| <ul><li>[Actual Features](#actual-features)</li><li>[Further Potential Features](#further-potential-features)</li><li>[Changelog for Frontend/Backend projects](#changelog-for-frontendbackend-projects)</li></ul>                                            | ****Backend** / **Frontend**** | 
+| <ul><li>[Tech Stack](#tech-stack)</li><li>[Features](#features)</li><li>[Getting Started](#getting-started)</li><li>[Running Tests](#running-tests)</li><li>[API Endpoints](#api-endpoints)</li><li>[Error Response Format](#error-response-format)</li></ul> | ****Backend****                |
 
 ---
 
-### <span style="color:#f7cd6a">⚠️ Notice that these 3 next sections below concern Backend and Frontend parts</span>
+### ⚠️ Notice that these 3 next sections below concern Backend and Frontend parts
 
-## <span style="color:#5f6360">Actual Features</span>
+## Actual Features
 
 So far so good ! \
 For now, there is a page which fetches the data from the backend and then display a user form for registering
@@ -41,7 +41,7 @@ deleting the user or updating the info of the user (frontend modal not yet imple
 
 ---
 
-## <span style="color:#5f6360">Further Potential Features</span>
+## Further Potential Features
 
 The actual specification is simple but it could be nice then to improve the app to provide more features and be more
 user-friendly.
@@ -53,57 +53,57 @@ The application could send mail to the registered people to indicate if they hav
 
 ---
 
-## <span style="color:#5f6360">Changelog for Frontend/Backend projects</span>
+## Changelog for Frontend/Backend projects
 
-* <span style="color:#485cf7">**[Back]**</span> Create an empty project and decide/install all the tools and frameworks
+* **[Back]** Create an empty project and decide/install all the tools and frameworks
   needed
-* <span style="color:#485cf7">**[Back]**</span> Configure tools and frameworks basically to make the app running
-* <span style="color:#485cf7">**[Back]**</span> Structure my project and create my user entity, repository, service and
+* **[Back]** Configure tools and frameworks basically to make the app running
+* **[Back]** Structure my project and create my user entity, repository, service and
   REST controller
-* <span style="color:#485cf7">**[Back]**</span> Install My SQL and connect it to the app
-* <span style="color:green">**[Front]**</span> Decide the stack (React + TypeScript + Vite + TailwindCss) and install
+* **[Back]** Install My SQL and connect it to the app
+* **[Front]** Decide the stack (React + TypeScript + Vite + TailwindCss) and install
   it
-* <span style="color:green">**[Front]**</span> Structure my project and create API service, a component and a page
-* <span style="color:green">**[Front]**</span> Improve API service, create UserCard and UserForm components for
+* **[Front]** Structure my project and create API service, a component and a page
+* **[Front]** Improve API service, create UserCard and UserForm components for
   registration
-* <span style="color:green">**[Front]**</span> Add data validations (Name/Surname not empty or malformed email)
-* <span style="color:#485cf7">**[Back]**</span> Improve the service and the controller with implementing all the CRUD
+* **[Front]** Add data validations (Name/Surname not empty or malformed email)
+* **[Back]** Improve the service and the controller with implementing all the CRUD
   operations
-* <span style="color:green">**[Front]**</span> Implement the CRUD operations in the front codebase
-* <span style="color:green">**[Front]**</span> Refactor UserCard component and add to it Update button and Delete button
-* <span style="color:green">**[Front]**</span> Upgrade Tailwind from v3 to v4 and fix issues
-* <span style="color:green">**[Front]**</span> Adding styling libraries and dependencies
-* <span style="color:green">**[Front]**</span> Redesign the page and clean the project
-* <span style="color:#485cf7">**[Back]**</span> Add tests for UserService and UserController
-* <span style="color:#485cf7">**[Back]**</span> Fix CVE-2025-11226 Arbitrary Code Execution (ACE), forced to get a
+* **[Front]** Implement the CRUD operations in the front codebase
+* **[Front]** Refactor UserCard component and add to it Update button and Delete button
+* **[Front]** Upgrade Tailwind from v3 to v4 and fix issues
+* **[Front]** Adding styling libraries and dependencies
+* **[Front]** Redesign the page and clean the project
+* **[Back]** Add tests for UserService and UserController
+* **[Back]** Fix CVE-2025-11226 Arbitrary Code Execution (ACE), forced to get a
   higher version than v1.5.18 for logback-core
   and logback-classic
-* <span style="color:#485cf7">**[Back]**</span> Add configuration and data file to populate automatically the database
+* **[Back]** Add configuration and data file to populate automatically the database
   is needed
-* <span style="color:green">**[Front]**</span> Create a .env file to externalise the api backend url and make the
+* **[Front]** Create a .env file to externalise the api backend url and make the
   frontend exposure port configurable
-* <span style="color:#485cf7">**[Back]**</span> Create CorsConfig class to configure and manage cross-origin requests
-* <span style="color:#485cf7">**[Back]**</span> Externalise the frontend URL in application.properties
-* <span style="color:#485cf7">**[Back]**</span> Make the backend URL configurable
-* <span style="color:#485cf7">**[Back]**</span> Add data validations (Name/Surname not null or empty, malformed email
+* **[Back]** Create CorsConfig class to configure and manage cross-origin requests
+* **[Back]** Externalise the frontend URL in application.properties
+* **[Back]** Make the backend URL configurable
+* **[Back]** Add data validations (Name/Surname not null or empty, malformed email
   and unicity email)
-* <span style="color:#485cf7">**[Back]**</span> Create a GlobalExceptionHandler to manage all the exceptions occurred in
+* **[Back]** Create a GlobalExceptionHandler to manage all the exceptions occurred in
   the app and send back a clean http
   response to the frontend part
 
 ### Tasks coming soon:
 
-* <span style="color:#485cf7">**[Back]**</span> Create json file with data to import in Postman and add it to the repo
-* <span style="color:#485cf7">**[Back]**</span> Add a logger to track application behavior, and debug/diagnose issues
-* <span style="color:#485cf7">**[Back]**</span> / <span style="color:green">**[Front]**</span> Add a random user feature
+* **[Back]** Create json file with data to import in Postman and add it to the repo
+* **[Back]** Add a logger to track application behavior, and debug/diagnose issues
+* **[Back]** / **[Front]** Add a random user feature
 
 ---
 
-### <span style="color:#f7cd6a">⚠️ Notice that these next sections below only concern Backend part</span>
+### ⚠️ Notice that these next sections below only concern Backend part
 
-###                            
+###                               
 
-## <span style="color:#5f6360">Tech Stack</span>
+## Tech Stack
 
 * Java 25
 * Spring Boot 3.x
@@ -116,7 +116,7 @@ The application could send mail to the registered people to indicate if they hav
 
 ---
 
-## <span style="color:#5f6360">Features</span>
+## Features
 
 * Create, read, update, and delete users via REST endpoints.
 * In-memory H2 database for fast development and testing but works also with My SQL database. Dependency commented in
@@ -126,7 +126,7 @@ The application could send mail to the registered people to indicate if they hav
 
 ---
 
-## <span style="color:#5f6360">Getting Started</span>
+## Getting Started
 
 ### Prerequisites
 
@@ -162,7 +162,7 @@ In this case, make sure to configure the new backend url in the frontend `.env` 
 
 ---
 
-## <span style="color:#5f6360">Running Tests</span>
+## Running Tests
 
 The tests strategy is based on unit tests of every layer, so Service and Controller layers.
 Both test-to-pass and test-to-fail are implemented to ensure the correct behavior of the application.\
@@ -177,7 +177,7 @@ mvn test
 
 ---
 
-## <span style="color:#5f6360">API Endpoints</span>
+## API Endpoints
 
 | HTTP Method | Endpoint          | Description                    | Request Body (JSON) Example                                                       | Response Status  | Possible Errors                                                                                              |
 |-------------|-------------------|--------------------------------|-----------------------------------------------------------------------------------|------------------|--------------------------------------------------------------------------------------------------------------|
@@ -189,7 +189,7 @@ mvn test
 
 ---
 
-### <span style="color:#5f6360">Error Response Format</span>
+### Error Response Format
 
 All error responses from the backend follow a **uniform JSON structure**:
 
@@ -208,7 +208,7 @@ All error responses from the backend follow a **uniform JSON structure**:
 
 ---
 
-### <span style="color:#5f6360">Interact with Postman</span>
+### Interact with Postman
 
 ** TODO: ** Create json file with data to import, add it in the repo and detail it here. 
 
