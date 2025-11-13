@@ -1,8 +1,8 @@
 package com.example.hibernatedemo.controller;
 
-import com.example.hibernatedemo.exception.UserNotFoundException;
-import com.example.hibernatedemo.model.User;
-import com.example.hibernatedemo.service.UserService;
+import com.example.hibernatedemo.exception.PlayerNotFoundException;
+import com.example.hibernatedemo.model.Player;
+import com.example.hibernatedemo.service.PlayerService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,40 +24,40 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 /**
  * /**
- * Class tests for the {@link UserController} class.
+ * Class tests for the {@link PlayerController} class.
  * <p>
  * Verifies the behavior of all REST endpoints exposed by the
- * {@code UserController}. It focuses on ensuring that HTTP requests are
+ * {@code PlayerController}. It focuses on ensuring that HTTP requests are
  * correctly handled, responses have the expected status codes and body content,
- * and that the controller properly delegates to the {@link UserService} layer.
+ * and that the controller properly delegates to the {@link PlayerService} layer.
  * </p>
  */
 //@ExtendWith(MockitoExtension.class)
-@WebMvcTest(UserController.class)
+@WebMvcTest(PlayerController.class)
 @AutoConfigureMockMvc
-class UserControllerTest {
+class PlayerControllerTest {
 
-    private static final String USERS_ENDPOINT = "/api/users";
+    private static final String USERS_ENDPOINT = "/api/player";
     @Autowired
     private ObjectMapper objectMapper;
     @Autowired
     private MockMvc mockMvc;
     @MockitoBean
-    private UserService userService;
-    private UserController userController;
-    private User user1;
-    private User user2;
+    private PlayerService playerService;
+    private PlayerController playerController;
+    private Player player1;
+    private Player player2;
 
     @BeforeEach
     void setUp() {
-        user1 = new User("John", "Doe", "john.doe@example.com");
-        user2 = new User("Jane", "Smith", "jane.smith@example.com");
+        player1 = new Player("John", "Doe", "john.doe@example.com");
+        player2 = new Player("Jane", "Smith", "jane.smith@example.com");
     }
 
     @Test
-    void getAllUsers_ShouldReturnAllUsers() throws Exception {
-        List<User> users = Arrays.asList(user1, user2);
-        when(userService.getAllUsers()).thenReturn(users);
+    void getAllPlayers_ShouldReturnAllPlayers() throws Exception {
+        List<Player> players = Arrays.asList(player1, player2);
+        when(playerService.getAllPlayers()).thenReturn(players);
 
         mockMvc.perform(get(USERS_ENDPOINT))
                 .andExpect(status().isOk())
@@ -67,8 +67,8 @@ class UserControllerTest {
     }
 
     @Test
-    void getUserById_ShouldReturnUserById() throws Exception {
-        when(userService.getUserById(1L)).thenReturn(user1);
+    void getPlayerById_ShouldReturnPlayerById() throws Exception {
+        when(playerService.getPlayerById(1L)).thenReturn(player1);
 
         mockMvc.perform(get(USERS_ENDPOINT + "/{id}", 1L))
                 .andExpect(status().isOk())
@@ -77,43 +77,43 @@ class UserControllerTest {
     }
 
     @Test
-    void createUser_ShouldReturnCreatedUser() throws Exception {
-        when(userService.createUser(any(User.class))).thenReturn(user1);
+    void createPlayer_ShouldReturnCreatedPlayer() throws Exception {
+        when(playerService.createPlayer(any(Player.class))).thenReturn(player1);
 
         mockMvc.perform(post(USERS_ENDPOINT)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(user1)))
+                        .content(objectMapper.writeValueAsString(player1)))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.name").value("John"))
                 .andExpect(jsonPath("$.surname").value("Doe"));
     }
 
     @Test
-    void updateUser_ShouldReturnUpdatedUser() throws Exception {
-        User updatedUser = new User("Johnny", "Doe", "johnny.doe@example.com");
-        when(userService.updateUser(eq(1L), any(User.class))).thenReturn(updatedUser);
+    void updatePlayer_ShouldReturnUpdatedPlayer() throws Exception {
+        Player updatedPlayer = new Player("Johnny", "Doe", "johnny.doe@example.com");
+        when(playerService.updatePlayer(eq(1L), any(Player.class))).thenReturn(updatedPlayer);
 
         mockMvc.perform(put(USERS_ENDPOINT + "/{id}", 1L)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(updatedUser)))
+                        .content(objectMapper.writeValueAsString(updatedPlayer)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("Johnny"));
     }
 
     @Test
-    void deleteUser_ShouldCallUserServiceDeleteUser() throws Exception {
-        doNothing().when(userService).deleteUser(1L);
+    void deletePlayer_ShouldCallPlayerServiceDeletePlayer() throws Exception {
+        doNothing().when(playerService).deletePlayer(1L);
 
         mockMvc.perform(delete(USERS_ENDPOINT + "/{id}", 1L))
                 .andExpect(status().isNoContent());
 
-        verify(userService, times(1)).deleteUser(1L);
+        verify(playerService, times(1)).deletePlayer(1L);
     }
 
     // ----------- Internal Server Error Test -----------
     @Test
-    void getAllUsers_KO_whenUnhandledException_thenReturns500() throws Exception {
-        when(userService.getAllUsers())
+    void getAllPlayers_KO_whenUnhandledException_thenReturns500() throws Exception {
+        when(playerService.getAllPlayers())
                 .thenThrow(new RuntimeException("Internal server error"));
 
         mockMvc.perform(get(USERS_ENDPOINT))
@@ -122,29 +122,29 @@ class UserControllerTest {
                 .andExpect(jsonPath("$.details").value("Unexpected error occurred"));
     }
 
-    // ----------- User Not Found Test -----------
+    // ----------- Player Not Found Test -----------
     @Test
-    void getUserById_KO_whenUserNotFound_thenReturns404() throws Exception {
+    void getPlayerById_KO_whenPlayerNotFound_thenReturns404() throws Exception {
         long missingId = 999L;
-        when(userService.getUserById(missingId))
-                .thenThrow(new com.example.hibernatedemo.exception.UserNotFoundException(missingId));
+        when(playerService.getPlayerById(missingId))
+                .thenThrow(new PlayerNotFoundException(missingId));
 
         mockMvc.perform(get(USERS_ENDPOINT + "/{id}", missingId))
                 .andExpect(status().isNotFound())
                 .andExpect(jsonPath("$.timestamp").isNotEmpty())
-                .andExpect(jsonPath("$.message").value("User with id 999 not found"))
-                .andExpect(jsonPath("$.details").value("The requested user does not exist"));
+                .andExpect(jsonPath("$.message").value("Player with id 999 not found"))
+                .andExpect(jsonPath("$.details").value("The requested player does not exist"));
     }
 
 
     // ----------- Validation Error Test -----------
     @Test
-    void createUser_KO_whenInvalidUser_thenReturns400AndValidationDetails() throws Exception {
-        User invalidUser = new User("", "", "invalid-email");
+    void createPlayer_KO_whenInvalidPlayer_thenReturns400AndValidationDetails() throws Exception {
+        Player invalidPlayer = new Player("", "", "invalid-email");
 
         mockMvc.perform(post(USERS_ENDPOINT)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(invalidUser)))
+                        .content(objectMapper.writeValueAsString(invalidPlayer)))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.message").value("Validation failed"))
                 .andExpect(jsonPath("$.timestamp").isNotEmpty())
@@ -155,26 +155,26 @@ class UserControllerTest {
 
     // ----------- Data Integrity Violation Test -----------
     @Test
-    void createUser_KO_whenDuplicateEmail_thenReturns409() throws Exception {
-        User duplicateUser = new User("Alice", "Smith", "alice@example.com");
-        when(userService.createUser(any(User.class)))
+    void createPlayer_KO_whenDuplicateEmail_thenReturns409() throws Exception {
+        Player duplicatePlayer = new Player("Alice", "Smith", "alice@example.com");
+        when(playerService.createPlayer(any(Player.class)))
                 .thenThrow(new org.springframework.dao.DataIntegrityViolationException("Duplicate email"));
 
         mockMvc.perform(post(USERS_ENDPOINT)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(duplicateUser)))
+                        .content(objectMapper.writeValueAsString(duplicatePlayer)))
                 .andExpect(status().isConflict())
                 .andExpect(jsonPath("$.timestamp").isNotEmpty())
                 .andExpect(jsonPath("$.message").value("Database constraint violation"))
                 .andExpect(jsonPath("$.details").value("Database constraint violation"));
     }
 
-    // ----------- User Not Found Test -----------
+    // ----------- Player Not Found Test -----------
     @Test
-    void updateUser_KO_NonExistent_ShouldReturnNotFound() throws Exception {
-        when(userService.updateUser(eq(999L), any(User.class))).thenThrow(new UserNotFoundException(999L));
+    void updatePlayer_KO_NonExistent_ShouldReturnNotFound() throws Exception {
+        when(playerService.updatePlayer(eq(999L), any(Player.class))).thenThrow(new PlayerNotFoundException(999L));
 
-        String updatedUserJson = """
+        String updatedPlayerJson = """
                 {
                   "name": "Johnny",
                   "surname": "Doe",
@@ -184,7 +184,7 @@ class UserControllerTest {
 
         mockMvc.perform(put(USERS_ENDPOINT + "/999")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(updatedUserJson))
+                        .content(updatedPlayerJson))
                 .andExpect(status().isNotFound())
                 .andExpect(jsonPath("$.timestamp").isNotEmpty());
     }

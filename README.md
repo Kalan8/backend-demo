@@ -7,7 +7,7 @@ The associated frontend is developed in Typescript/React and it is available at 
 The purpose of this couple of projects is to develop a lottery application. \
 A brief specification of the app is:
 
-* provide a page for creating/importing users and display the list of registered users,
+* provide a page for creating/importing players and display the list of registered players,
 * provide another page for launching the lottery and displaying the winner(s).
 
 The [Further Potential Features](#further-potential-features) section below presents what would
@@ -37,9 +37,10 @@ This project is mainly a sandbox for testing backend/frontend techs and concepts
 ## Actual Features
 
 So far so good ! \
-For now, there is a page which fetches the data from the backend and then display a user form for registering
-users. The page displays dynamically the users already registered. Two buttons are present in each row of user to let
-deleting the user or updating the info of the user (frontend modal not yet implemented but backend is ready).
+For now, there is a page which fetches the data from the backend and then display a player form for registering
+players. The page displays dynamically the players already registered. Two buttons are present in each row of player to
+let
+deleting the player or updating the info of the player (frontend modal not yet implemented but backend is ready).
 
 ---
 
@@ -49,7 +50,7 @@ The actual specification is simple but it could be nice then to improve the app 
 user-friendly.
 It could be good to have a simple page for people who want to register for the lottery.
 An authentication system to allow an admin or administration staff to reach administration page.
-On this page, the user can administrate the list of users so create/update/delete or import a file of users.
+On this page, the user can administrate the list of players so create/update/delete or import a file of players.
 And on this page, the user can set the lottery: the number of winners and ordered/unordered winners.
 The application could send mail to the registered people to indicate if they have won or lost.
 
@@ -60,23 +61,23 @@ The application could send mail to the registered people to indicate if they hav
 * **[Back]** Create an empty project and decide/install all the tools and frameworks
   needed
 * **[Back]** Configure tools and frameworks basically to make the app running
-* **[Back]** Structure my project and create my user entity, repository, service and
+* **[Back]** Structure my project and create my player entity, repository, service and
   REST controller
 * **[Back]** Install My SQL and connect it to the app
 * **[Front]** Decide the stack (React + TypeScript + Vite + TailwindCss) and install
   it
 * **[Front]** Structure my project and create API service, a component and a page
-* **[Front]** Improve API service, create UserCard and UserForm components for
+* **[Front]** Improve API service, create PlayerCard and PlayerForm components for
   registration
 * **[Front]** Add data validations (Name/Surname not empty or malformed email)
 * **[Back]** Improve the service and the controller with implementing all the CRUD
   operations
 * **[Front]** Implement the CRUD operations in the front codebase
-* **[Front]** Refactor UserCard component and add to it Update button and Delete button
+* **[Front]** Refactor PlayerCard component and add to it Update button and Delete button
 * **[Front]** Upgrade Tailwind from v3 to v4 and fix issues
 * **[Front]** Adding styling libraries and dependencies
 * **[Front]** Redesign the page and clean the project
-* **[Back]** Add tests for UserService and UserController
+* **[Back]** Add tests for PlayerService and PlayerController
 * **[Back]** Fix CVE-2025-11226 Arbitrary Code Execution (ACE), forced to get a
   higher version than v1.5.18 for logback-core
   and logback-classic
@@ -97,7 +98,7 @@ The application could send mail to the registered people to indicate if they hav
 
 * **[Back]** Create json file with data to import in Postman and add it to the repo
 * **[Back]** Add a logger to track application behavior, and debug/diagnose issues
-* **[Back]** / **[Front]** Add a random user feature
+* **[Back]** / **[Front]** Add a random player feature
 
 ---
 
@@ -118,7 +119,7 @@ The application could send mail to the registered people to indicate if they hav
 
 ## Backend Internal Features
 
-* Create, read, update, and delete users via REST endpoints.
+* Create, read, update, and delete players via REST endpoints.
 * In-memory H2 database for fast development and testing but works also with My SQL database. Dependency commented in
   pom.xml and configurations commented in application.properties
 * JUnit and Mockito tests for Service and Controller layers. HTTP responses are also tested.
@@ -179,13 +180,13 @@ mvn test
 
 ## API Endpoints
 
-| HTTP Method | Endpoint          | Description                    | Request Body (JSON) Example                                                       | Response Status  | Possible Errors                                                                                              |
-|-------------|-------------------|--------------------------------|-----------------------------------------------------------------------------------|------------------|--------------------------------------------------------------------------------------------------------------|
-| **GET**     | `/api/users`      | Retrieve all users             | –                                                                                 | `200 OK`         | `500 Internal Server Error`                                                                                  |
-| **GET**     | `/api/users/{id}` | Retrieve a specific user by ID | –                                                                                 | `200 OK`         | `404 Not Found` if user doesn’t exist                                                                        |
-| **POST**    | `/api/users`      | Create a new user              | ```json { "name": "John", "surname": "Doe", "email": "john.doe@example.com" } ``` | `201 Created`    | `400 Bad Request` (validation error) / `409 Conlict` (DB integrity violation)                                |
-| **PUT**     | `/api/users/{id}` | Update an existing user by ID  | ```json { "name": "Jane", "surname": "Doe", "email": "jane.doe@example.com" } ``` | `200 OK`         | `404 Not Found` (user not found) / `400 Bad Request` (invalid data) / `409 Conlict` (DB integrity violation) |
-| **DELETE**  | `/api/users/{id}` | Delete a user by ID            | –                                                                                 | `204 No Content` | `404 Not Found` if user doesn’t exist                                                                        |
+| HTTP Method | Endpoint           | Description                      | Request Body (JSON) Example                                                       | Response Status  | Possible Errors                                                                                                |
+|-------------|--------------------|----------------------------------|-----------------------------------------------------------------------------------|------------------|----------------------------------------------------------------------------------------------------------------|
+| **GET**     | `/api/player`      | Retrieve all players             | –                                                                                 | `200 OK`         | `500 Internal Server Error`                                                                                    |
+| **GET**     | `/api/player/{id}` | Retrieve a specific player by ID | –                                                                                 | `200 OK`         | `404 Not Found` if player doesn’t exist                                                                        |
+| **POST**    | `/api/player`      | Create a new player              | ```json { "name": "John", "surname": "Doe", "email": "john.doe@example.com" } ``` | `201 Created`    | `400 Bad Request` (validation error) / `409 Conlict` (DB integrity violation)                                  |
+| **PUT**     | `/api/player/{id}` | Update an existing player by ID  | ```json { "name": "Jane", "surname": "Doe", "email": "jane.doe@example.com" } ``` | `200 OK`         | `404 Not Found` (player not found) / `400 Bad Request` (invalid data) / `409 Conlict` (DB integrity violation) |
+| **DELETE**  | `/api/player/{id}` | Delete a player by ID            | –                                                                                 | `204 No Content` | `404 Not Found` if player doesn’t exist                                                                        |
 
 ---
 

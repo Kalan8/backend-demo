@@ -35,13 +35,13 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(body, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<Map<String, Object>> handleUserNotFound(UserNotFoundException ex) {
+    @ExceptionHandler(PlayerNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handlePlayerNotFound(PlayerNotFoundException ex) {
         Map<String, Object> body = new LinkedHashMap<>();
         body.put("status", HttpStatus.NOT_FOUND.value());
         body.put("message", ex.getMessage());
         body.put("timestamp", LocalDateTime.now());
-        body.put("details", "The requested user does not exist");
+        body.put("details", "The requested player does not exist");
 
         return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
     }
