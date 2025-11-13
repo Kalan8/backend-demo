@@ -93,6 +93,9 @@ The application could send mail to the registered people to indicate if they hav
 * **[Back]** Create a GlobalExceptionHandler to manage all the exceptions occurred in
   the app and send back a clean http
   response to the frontend part
+* **[Front]** Rework UI of the app + reorganise css/tailwind
+* **[Front]** Add toggle and manage light and dark mods + fix FOUC issue
+* **[Back]** / **[Front]** Rename user to player in all the projects as it is more appropriate
 
 ### Tasks coming soon:
 
