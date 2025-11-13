@@ -2,7 +2,7 @@
 
 This project is a java backend side of a web Lottery application. \
 The associated frontend is developed in Typescript/React and it is available at :
-[`https://github.com/Kalan8/frontend-demo`](https://github.com/Kalan8/frontend-demo)
+[`https://github.com/Kalan8/lottery-frontend`](https://github.com/Kalan8/lottery-frontend)
 
 The purpose of this couple of projects is to develop a lottery application. \
 A brief specification of the app is:
@@ -102,8 +102,6 @@ The application could send mail to the registered people to indicate if they hav
 ---
 
 ### ⚠️ Notice that these next sections below only concern Backend part
-
-###                                    
 
 ## Backend Tech Stack
 
