@@ -94,14 +94,18 @@ The application could send mail to the registered people to indicate if they hav
   the app and send back a clean http
   response to the frontend part
 * **[Front]** Rework UI of the app + reorganise css/tailwind
-* **[Front]** Add toggle and manage light and dark mods + fix FOUC issue
+* **[Front]** Add toggle theme and manage light and dark theme + fix FOUC issue
 * **[Back]** / **[Front]** Rename user to player in all the projects as it is more appropriate
 
 ### Tasks coming soon:
 
-* **[Back]** Create json file with data to import in Postman and add it to the repo
-* **[Back]** Add a logger to track application behavior, and debug/diagnose issues
+* **[Front]** Create a player page to register and change the first page reached
+* **[Front]** Create a button to redirect into the lottery management page
+* **[Front]** Create a button to import multiple players by file in the lottery management page
 * **[Back]** / **[Front]** Add a random player feature
+* **[Back]** Add ability to import a file of players
+* **[Back]** Add a logger to track application behavior, and debug/diagnose issues
+* **[Back]** Create json file with data to import in Postman and add it to the repo
 
 ---
 
@@ -209,10 +213,4 @@ All error responses from the backend follow a **uniform JSON structure**:
   }
 }
 ```
-
----
-
-### Interact with Postman
-
-** TODO: ** Create json file with data to import, add it in the repo and detail it here. 
 
