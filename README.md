@@ -96,10 +96,10 @@ The application could send mail to the registered people to indicate if they hav
 * **[Front]** Rework UI of the app + reorganise css/tailwind
 * **[Front]** Add toggle theme and manage light and dark theme + fix FOUC issue
 * **[Back]** / **[Front]** Rename user to player in all the projects as it is more appropriate
+* **[Front]** Create a player page to register and make it as the home page
 
 ### Tasks coming soon:
 
-* **[Front]** Create a player page to register and change the first page reached
 * **[Front]** Create a button to redirect into the lottery management page
 * **[Front]** Create a button to import multiple players by file in the lottery management page
 * **[Back]** / **[Front]** Add a random player feature
