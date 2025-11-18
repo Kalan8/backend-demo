@@ -97,14 +97,14 @@ The application could send mail to the registered people to indicate if they hav
 * **[Front]** Add toggle theme and manage light and dark theme + fix FOUC issue
 * **[Back]** / **[Front]** Rename user to player in all the projects as it is more appropriate
 * **[Front]** Create a player page to register and make it as the home page
+* **[Front]** Create a button to redirect into the lottery management page
+* **[Back]** Add a logger to track application behavior, and debug/diagnose issues
 
 ### Tasks coming soon:
 
-* **[Front]** Create a button to redirect into the lottery management page
 * **[Front]** Create a button to import multiple players by file in the lottery management page
 * **[Back]** / **[Front]** Add a random player feature
 * **[Back]** Add ability to import a file of players
-* **[Back]** Add a logger to track application behavior, and debug/diagnose issues
 * **[Back]** Create json file with data to import in Postman and add it to the repo
 
 ---
